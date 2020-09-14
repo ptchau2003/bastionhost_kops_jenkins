@@ -9,14 +9,17 @@
 #### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
 * Input AWS credentials key to your local machines
 aws configure
+
 ```
 AWS Access Key ID [****************XUOH]: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 AWS Secret Access Key [****************EQSD]: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Default region name [us-east-1]:
 Default output format [json]:
 ```
+
 * Init and validate the bastionhost_kops_jenkins
 terraform init
+
 ```
 Initializing the backend...
 
@@ -42,8 +45,11 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
+
 * Terraform validate
 terraform validate
+
 ```
 Success! The configuration is valid.
 ```
+
