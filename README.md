@@ -1,5 +1,5 @@
 # Establish Bastion Host with Ansible/Jenkins/kops and deploy K8S cluster from this node to AWS EC2
-## The Bastion Host is an AWS EC2 node includes:
+## The Bastion Host is an AWS EC2 node Ubuntu 18.6 includes:
 ### 1. Ansible
 ### 2. Jenkins with HTTPS configuration (will be guided in next steps), HTTPS port 8443
 ### 3. AWS CLI
