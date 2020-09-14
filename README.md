@@ -1,4 +1,4 @@
-# Establish Bastion Host with Ansible/Jenkins/kops and deploy K8S cluster from this node to AWS EC2
+# I. Establish Bastion Host with Ansible/Jenkins/kops and deploy K8S cluster from this node to AWS EC2
 ## The Bastion Host is an AWS EC2 node Ubuntu 18.6 includes:
 ### 1. Ansible
 ### 2. Jenkins with HTTPS configuration, HTTPS port 8443
@@ -7,6 +7,7 @@
 ### 5. Jenkins jobs to deploy the k8s cluster to system
 ### 6. Jenkins jobs to deploy simulate tracking application with CD/CI
 #### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
+#### The Bastion Host has roles Full to S3, EC2, IAM to peform kops command
 ## Input AWS credentials key to your local machines
 aws configure
 
@@ -22,7 +23,7 @@ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/cloud_user/.ssh/id_rsa):
 ```
-### The key name id_rsa must be placed in same directory with Terrform directory
+### The key name id_rsa must be copy into same directory with Terrform directory
 ## Init and validate the bastionhost_kops_jenkins
 terraform init
 
@@ -106,7 +107,7 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1-httpsPort=8443 --http
 sudo service jenkins restart
 #### Check by https:\/\<BationHost IP\>:8443/ successfully
 
-# Jenkins jobs loading
+# II. Jenkins jobs loading
 ## Copy all the jobs to Bastion Host /tmp/ directory
 ```
 scp -pr jobs ubuntu@`cat public_ip.txt`:/tmp/
@@ -124,4 +125,14 @@ config.xml                                                                      
 config.xml                                                                                                                                                                      100% 1534    22.3KB/s   00:00
 config.xml                                                                                                                                                                      100%  468     6.8KB/s   00:00
 ```
-
+## Log into the Bastion Host 
+ssh ubuntu@`cat public_ip.txt`
+## Change owner of the directory
+cd /tmp
+chown -R jenkins:jenkins jobs
+## Move the job to jenkins jobs
+sudo cp -pr /tmp/jobs/* /var/lib/jenkins/jobs/
+## Restart jenkins
+sudo service jenkins restart
+## You can see all available k8s job available
+1. 
