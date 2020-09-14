@@ -104,4 +104,4 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1-httpsPort=8443 --http
 ```
 #### Restart jenkins
 sudo service jenkins restart
-#### Check by https:/<BationHost IP>:8443/ successfully
+#### Check by https:\/\<BationHost IP\>:8443/ successfully
