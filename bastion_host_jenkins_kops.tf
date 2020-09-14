@@ -22,7 +22,7 @@ variable "amis" {
 }
 resource "aws_key_pair" "bastion-host" {
   key_name   = var.env
-  public_key = file("/home/cloud_user/.ssh/id_rsa.pub")
+  public_key = file("id_rsa.pub")
 }
 #Default VPC
 resource "aws_default_vpc" "default" {}
@@ -30,7 +30,7 @@ resource "aws_default_vpc" "default" {}
 #Port 22 for SSH and port 8080 for jenkins
 resource "aws_security_group" "bastion-host-sg" {
   name        = "Allow SSH and Jenkins HTTP(S)"
-  description = "Allow SSH inbound traffic"
+  description = "Allow Jenkins/SSH inbound traffic"
   vpc_id      = aws_default_vpc.default.id
   ingress {
     description = "Allow SSH from 0.0.0.0"
@@ -43,13 +43,6 @@ resource "aws_security_group" "bastion-host-sg" {
     description = "Allow Jenkins HTTPS from 0.0.0.0"
     from_port   = 8443
     to_port     = 8443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    description = "Allow HTTP Jenkin port 8080 from 0.0.0.0"
-    from_port   = 8080
-    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -120,7 +113,7 @@ resource "aws_instance" "bastion-host" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("/home/cloud_user/.ssh/id_rsa")
+    private_key = file("id_rsa.pub")
     host        = self.public_ip
   }
   provisioner "local-exec" {

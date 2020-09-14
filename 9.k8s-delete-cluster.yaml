@@ -1,1 +1,0 @@
-kops delete cluster ${NAME} --state=${BUCKET} --yes

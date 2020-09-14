@@ -10,6 +10,7 @@
 *.key
 *.pkcs12
 *.txt
+Installation
 # Crash log files
 crash.log
 

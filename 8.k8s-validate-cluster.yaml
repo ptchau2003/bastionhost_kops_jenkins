@@ -1,1 +1,0 @@
-kops validate cluster --name=${NAME} --state=${BUCKET}

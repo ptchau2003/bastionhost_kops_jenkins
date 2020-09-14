@@ -1,3 +1,0 @@
-rm -rf /var/lib/jenkins/.ssh/id_rsa
-ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
-kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub --state ${BUCKET}
