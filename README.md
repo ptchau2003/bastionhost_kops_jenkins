@@ -105,3 +105,23 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1-httpsPort=8443 --http
 #### Restart jenkins
 sudo service jenkins restart
 #### Check by https:\/\<BationHost IP\>:8443/ successfully
+
+# Jenkins jobs loading
+## Copy all the jobs to Bastion Host /tmp/ directory
+```
+scp -pr jobs ubuntu@`cat public_ip.txt`:/tmp/
+config.xml                                                                                                                                                                      100% 1291    18.7KB/s   00:00
+config.xml                                                                                                                                                                      100% 1478    21.4KB/s   00:00
+config.xml                                                                                                                                                                      100%  955    13.9KB/s   00:00
+config.xml                                                                                                                                                                      100% 1038    15.1KB/s   00:00
+config.xml                                                                                                                                                                      100% 1478    21.5KB/s   00:00
+config.xml                                                                                                                                                                      100% 1331    16.3KB/s   00:00
+config.xml                                                                                                                                                                      100% 1337    19.4KB/s   00:00
+config.xml                                                                                                                                                                      100%  694    10.1KB/s   00:00
+config.xml                                                                                                                                                                      100% 1404    20.2KB/s   00:00
+config.xml                                                                                                                                                                      100% 1745    25.3KB/s   00:00
+config.xml                                                                                                                                                                      100% 1334    19.3KB/s   00:00
+config.xml                                                                                                                                                                      100% 1534    22.3KB/s   00:00
+config.xml                                                                                                                                                                      100%  468     6.8KB/s   00:00
+```
+
