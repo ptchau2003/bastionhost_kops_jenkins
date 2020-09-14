@@ -1,0 +1,8 @@
+kubectl autoscale deploy api-gateway --cpu-percent=80 --min=4 --max=10
+kubectl autoscale deploy position-simulator --cpu-percent=80 --min=4 --max=10
+kubectl autoscale deploy --cpu-percent=80 position-tracker --min=4 --max=10
+kubectl autoscale deploy --cpu-percent=80 queue --min=4 --max=10
+kubectl autoscale deploy --cpu-percent=80 webapp --min=4 --max=10
+kubectl get hpa
+kubectl describe hpa <pod>
+kubectl

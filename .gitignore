@@ -4,7 +4,12 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+*.pub
+*.crt
+*.jks
+*.key
+*.pkcs12
+*.txt
 # Crash log files
 crash.log
 

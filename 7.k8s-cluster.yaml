@@ -1,0 +1,2 @@
+kops create cluster --name=${NAME} --state=${BUCKET} --zones=us-east-1a,us-east-1b,us-east-1c --node-count=3
+kops update cluster ${NAME} --yes --state=${BUCKET}

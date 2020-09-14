@@ -1,0 +1,33 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>s3 bucket creation - s3 for storing the k8s configuration&#xd;
+Enable versioning and encrypt the configuration</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>aws s3api create-bucket --bucket $S3NAME --region us-east-1
+aws s3api put-bucket-versioning --bucket $S3NAME --versioning-configuration Status=Enabled
+aws s3api put-bucket-encryption --bucket $S3NAME --server-side-encryption-configuration &apos;{&quot;Rules&quot;:[{&quot;ApplyServerSideEncryptionByDefault&quot;:{&quot;SSEAlgorithm&quot;:&quot;AES256&quot;}}]}&apos;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.23">
+      <bindings>
+        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+          <credentialsId>S3NAME</credentialsId>
+          <variable>S3NAME</variable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+      </bindings>
+    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+  </buildWrappers>
+</project>
