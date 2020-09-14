@@ -134,5 +134,10 @@ chown -R jenkins:jenkins jobs
 sudo cp -pr /tmp/jobs/* /var/lib/jenkins/jobs/
 ## Restart jenkins
 sudo service jenkins restart
-## You can see all available k8s job available
-1. 
+## Access to Jenkins and input the Admin password from
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+## Install the needed jenkins following the instruction
+## After done, you can see all available k8s job available
+
