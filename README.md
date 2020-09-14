@@ -99,9 +99,9 @@ sudo openssl pkcs12 -inkey jenkins.key -in jenkins.crt -export -out jenkins.pkcs
 sudo keytool -importkeystore -srckeystore jenkins.pkcs12 -srcstoretype pkcs12 -destkeystore /var/lib/jenkins/jenkins.jks -deststoretype PKCS12
 #### Modify the jenkins configuration to support jenkins
 
-sudo vi /etc/default/jenkis
+sudo vi /etc/default/jenkins
 ```
-JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1-httpsPort=8443 --httpsKeyStore="/var/lib/jenkins/jenkins.jks" --httpsKeyStorePassword="XXXXXX"
+JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --httpsKeyStore="/var/lib/jenkins/jenkins.jks" --httpsKeyStorePassword="XXXXXX"
 ```
 #### Restart jenkins
 sudo service jenkins restart
