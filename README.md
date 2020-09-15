@@ -145,7 +145,9 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ![Admin](./Pic/1.png)
 
 ## Install the needed jenkins following the instruction
+![Admin](./Pic/2.png)
 ## After done, you can see all available k8s job available
+![Admin](./Pic/3.png)
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs conducting a k8s cluster includes: 
 ### 1. s3-create-k8s-configuration: Jobs to create S3 bucket to store k8s configuration
