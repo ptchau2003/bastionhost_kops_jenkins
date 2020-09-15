@@ -7,7 +7,7 @@
 ### 5. Jenkins jobs to deploy the k8s cluster to system
 ### 6. Jenkins jobs to deploy simulate tracking application with CD/CI
 #### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
-#### The Bastion Host has roles Full to S3, EC2, IAM to peform kops command
+#### The Bastion Host has roles Full to S3, EC2, IAM, Loadbalancer and Autoscaling to peform kops command
 ## Input AWS credentials key to your local machines
 aws configure
 
