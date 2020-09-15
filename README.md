@@ -283,7 +283,8 @@ fleetman-webapp             LoadBalancer   100.65.230.145   XXXXXXXXXXXXXXXXXXXX
 kubernetes                  ClusterIP      100.64.0.1       <none>                                                                    443/TCP              62m
 
 ```
-Copy and paste the LoadBalancer External-IP to see the traffic tracking application running well
+#### Copy and paste the LoadBalancer External-IP to see the traffic tracking application running well. You can setup this Jenkins job to GitHub to auto deploy your application to k8s cluster.
+
 ![Admin](./Pic/5.PNG)
 ### 7. K8S delete
 ```
