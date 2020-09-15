@@ -145,13 +145,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ## Install the needed jenkins following the instruction
 ## After done, you can see all available k8s job available
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
-## Jobs includes in order to conduct
+## Jobs conducting a k8s cluster includes: 
 ### 1. s3-create-k8s-configuration: Jobs to create S3 bucket to store k8s configuration
-### 2. k8s-create: Create k8s cluster in S3 (not deployed yet)
+### 2. k8s-create: Create k8s cluster configuration and put into S3 
 ### 3. k8s-cluster-deploy: Deploy K8S cluster to AWS 
 ### 4. k8s-cluster-validate: Validate cluster
 
-## Setting Global Variables for Jenkis
+## Setting Global Variables for Jenkins before deploying
 From Jenkins GUI, go to Manage Jenkins --> Configuration System --> Global properties --> Environment variables
 Set:
 CLUSTER_NAME = myk8s.cluster.local
