@@ -27,7 +27,7 @@ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/cloud_user/.ssh/id_rsa):
 ```
-### The key name id_rsa must be copy into same directory with Terrform directory
+### The public key id_rsa.pub must be copy into same directory with Terrform directory
 ## Init and validate the bastionhost_kops_jenkins
 terraform init
 
