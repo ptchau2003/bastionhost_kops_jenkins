@@ -154,6 +154,8 @@ sudo service jenkins restart
 sudo -i
 su - jenkins
 ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa):
 ```
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs conducting a k8s cluster includes: 
