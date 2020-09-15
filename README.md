@@ -149,6 +149,13 @@ sudo cp -pr /tmp/jobs/* /var/lib/jenkins/jobs/
 sudo service jenkins restart
 ## After done, access to https://IPoftheBastionHost:8443 and you should see all available k8s job available
 ![Admin](./Pic/3.PNG)
+## Copy the id_rsa.pub to /var/lib/jenkins/.ssh/
+```
+scp -pr jobs ubuntu@`cat public_ip.txt`:/tmp/
+ssh ubuntu@`cat public_ip.txt`
+sudo chown jenkins:jenkins /tmp/id_rsa.pub
+sudo mv /tmp/id_rsa.pub /var/lib/jenkins/.ssh/
+```
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs conducting a k8s cluster includes: 
 ### 1. s3-create-k8s-configuration: Jobs to create S3 bucket to store k8s configuration
