@@ -107,6 +107,7 @@ sudo vi /etc/default/jenkins
 ```
 JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --httpsKeyStore="/var/lib/jenkins/jenkins.jks" --httpsKeyStorePassword="XXXXXX"
 ```
+**Make sure that the store password is match with the store password you defined**
 #### Restart jenkins
 sudo service jenkins restart
 
