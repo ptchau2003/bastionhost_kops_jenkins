@@ -162,7 +162,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ##### BUCKET_NAME = myk8sconfig
 ##### JENKINS_HOME = /var/lib/jenkins
 ##### --> Save
-![Admin](./Pic/4.png)
+![Admin](./Pic/4.PNG)
 ### 1. Create S3 bucket to store your k8s configuration
 Run the 1st job
 ```
