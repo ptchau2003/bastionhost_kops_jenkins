@@ -13,7 +13,11 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops update cluster ${CLUSTER_NAME} --state=s3://${BUCKET_NAME} --yes</command>
+      <command>kubectl apply -f $JENKINS_HOME/jobs/Deploy/storage-aws.yaml
+kubectl apply -f $JENKINS_HOME/jobs/Deploy/mongo-stack.yaml
+kubectl apply -f $JENKINS_HOME/jobs/Deploy/services.yaml
+kubectl apply -f $JENKINS_HOME/jobs/Deploy/workloads.yaml
+</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

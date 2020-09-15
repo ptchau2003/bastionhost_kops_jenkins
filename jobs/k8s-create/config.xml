@@ -7,18 +7,6 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>NAME</name>
-          <description>The Cluster domain name</description>
-          <defaultValue>mycluster.k8s.local</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>BUCKET</name>
-          <description>The S3 bucket name, must be the same name with BUCKET configuration</description>
-          <defaultValue>s3://myk8sconfig</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
           <name>NODE</name>
           <description>How many cluster nodes</description>
           <defaultValue>3</defaultValue>
@@ -36,11 +24,21 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops create cluster --node-count=$NODE --zones=us-east-1a,us-east-1b,us-east-1c ${NAME} --state=${BUCKET}
+      <command>kops create cluster --node-count=$NODE --zones=us-east-1a,us-east-1b,us-east-1c ${CLUSTER_NAME} --state=s3://${BUCKET_NAME}
 </command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>k8s-cluster-deploy</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+  </publishers>
   <buildWrappers/>
 </project>

@@ -8,16 +8,16 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>NAME</name>
+          <name>CLUSTER_NAME</name>
           <description></description>
-          <defaultValue>mycluster.k8s.local</defaultValue>
-          <trim>false</trim>
+          <defaultValue></defaultValue>
+          <trim>true</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>BUCKET</name>
+          <name>BUCKET_NAME</name>
           <description></description>
-          <defaultValue>s3://myk8sconfig</defaultValue>
-          <trim>false</trim>
+          <defaultValue></defaultValue>
+          <trim>true</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -31,7 +31,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops delete cluster ${NAME} --state=${BUCKET} --yes</command>
+      <command>kops delete cluster ${CLUSTER_NAME} --state=s3://${BUCKET_NAME} --yes</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

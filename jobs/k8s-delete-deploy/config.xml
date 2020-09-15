@@ -13,7 +13,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops update cluster ${CLUSTER_NAME} --state=s3://${BUCKET_NAME} --yes</command>
+      <command>kubectl delete -f $JENKINS_HOME/jobs/Deploy/workloads.yaml
+kubectl delete -f $JENKINS_HOME/jobs/Deploy/services.yaml
+kubectl delete -f $JENKINS_HOME/jobs/Deploy/mongo-stack.yaml
+kubectl delete -f $JENKINS_HOME/jobs/Deploy/storage-aws.yaml</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

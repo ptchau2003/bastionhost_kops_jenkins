@@ -3,24 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <hudson.model.StringParameterDefinition>
-          <name>NAME</name>
-          <description></description>
-          <defaultValue>mycluster.k8s.local</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>BUCKET</name>
-          <description></description>
-          <defaultValue>s3://myk8sconfig</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
-  </properties>
+  <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -30,7 +13,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops validate cluster --name=${NAME} --state=${BUCKET}</command>
+      <command>kops validate cluster --name=${CLUSTER_NAME} --state=s3://${BUCKET}</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

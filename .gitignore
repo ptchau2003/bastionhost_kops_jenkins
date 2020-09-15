@@ -10,6 +10,8 @@
 *.key
 *.pkcs12
 *.txt
+*build*
+*Build*
 Installation
 # Crash log files
 crash.log
