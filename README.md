@@ -94,6 +94,7 @@ aws_instance.bastion-host: Creation complete after 35s [id=i-XXXXXXXXXXXXXXXXXX]
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 
 ```
+## Setup HTTPS for Jenkins
 ### Generate key for Jenkins
 #### Create key and certificate. Provide information wherever asked.
 sudo openssl req -newkey rsa:2048 -nodes -keyout jenkins.key -x509 -days 700 -out jenkins.crt
