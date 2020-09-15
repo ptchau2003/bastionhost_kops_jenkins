@@ -1,9 +1,0 @@
-Started by user [8mha:////4DWDSXNhRoK3t4MU8fmOCWvHlOBXop99EOow03ATihAaAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZu/dLi1CL9xJTczDwAawhpaMAAAAA=[0mChau Phan
-Running as SYSTEM
-Building in workspace /var/lib/jenkins/workspace/k8s-create
-[k8s-create] $ /bin/sh -xe /tmp/jenkins4576292751785131944.sh
-+ kops create cluster --node-count=3 --zones=us-east-1a,us-east-1b,us-east-1c mycluster.k8s.local --state=s3://myk8sconfig
-
-cluster "mycluster.k8s.local" already exists; use 'kops update cluster' to apply changes
-Build step 'Execute shell' marked build as failure
-Finished: FAILURE
