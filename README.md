@@ -146,7 +146,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ## Install the needed jenkins following the instruction
 ![Admin](./Pic/2.png)
-## After done, you can see all available k8s job available
+## After done, access to https://IPoftheBastionHost and you should see all available k8s job available
 ![Admin](./Pic/3.PNG)
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs conducting a k8s cluster includes: 
