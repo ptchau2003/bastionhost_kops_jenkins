@@ -201,7 +201,7 @@ Finally configure your cluster with: kops update cluster --name mycluster.k8s.lo
 
 Finished: SUCCESS
 ```
-### K8S deploy 
+### 3. K8S deploy 
 Run task 3, k8s deploy
 ```
 Started by user Chau Phan
@@ -221,7 +221,7 @@ Suggestions:
 
 Finished: SUCCESS
 ```
-### K8S validate
+### 4. K8S validate
 Run the taks validate 
 ```
 Started by user Chau Phan
@@ -245,7 +245,7 @@ ip-172-20-79-77.ec2.internal	node	True
 ```
 Your cluster mycluster.k8s.local is ready
 Finished: SUCCESS
-### Deploy the test application into K8S
+### 5. Deploy the test application into K8S
 ```
 Started by user Chau Phan
 Running as SYSTEM
@@ -270,7 +270,7 @@ deployment.apps/api-gateway created
 deployment.apps/webapp created
 Finished: SUCCESS
 ```
-### Check SVC under jenkins user
+### 6. Check SVC under jenkins user
 kubectl get svc
 ```
 
@@ -284,8 +284,8 @@ kubernetes                  ClusterIP      100.64.0.1       <none>              
 
 ```
 Copy and paste the LoadBalancer External-IP to see the traffic tracking application running well
-
-### K8S delete
+![Admin](./Pic/5.PNG)
+### 7. K8S delete
 ```
 Started by user Chau Phan
 Running as SYSTEM
@@ -298,7 +298,7 @@ Deleted kubectl config for mycluster.k8s.local
 Deleted cluster: "mycluster.k8s.local"
 Finished: SUCCESS
 ```
-# Terraform destroy the bastion node
+# 8. Terraform destroy the bastion node
 terraform destroy
 ```
 Do you really want to destroy all resources?
