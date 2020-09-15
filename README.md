@@ -151,13 +151,15 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ### 7. k8s-deploy-tracking-system: Deploy a simulate tracking system to k8s
 
 ## Export enviroment to k8s under jenkins user
-### NAME: name of the cluster
-### BUCKET: BUCKET name
-### S3NAME: It is s3://BUCKET
+NAME: name of the cluster
+BUCKET: BUCKET name
+S3NAME: It is s3://BUCKET
+```
 sudo -i
 su - jenkins
 export NAME='mycluster.k8s.local'
 export S3NAME='s3://myclusterconfiguration'
 export BUCKET='myclusterconfiguration'
+```
 
 
