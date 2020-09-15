@@ -132,8 +132,8 @@ config.xml                                                                      
 ## Log into the Bastion Host 
 ssh ubuntu@\`cat public_ip.txt\`
 ## Change owner of the directory
-cd /tmp
-chown -R jenkins:jenkins jobs
+##### cd /tmp
+##### chown -R jenkins:jenkins jobs
 ## Move the job to jenkins jobs
 sudo cp -pr /tmp/jobs/* /var/lib/jenkins/jobs/
 ## Restart jenkins
