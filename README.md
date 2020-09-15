@@ -222,7 +222,7 @@ Suggestions:
 Finished: SUCCESS
 ```
 ### 4. K8S validate
-Run the taks validate 
+Run the task validate 
 ```
 Started by user Chau Phan
 Running as SYSTEM
