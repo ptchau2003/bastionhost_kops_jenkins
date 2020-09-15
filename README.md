@@ -109,7 +109,6 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --ht
 ```
 #### Restart jenkins
 sudo service jenkins restart
-#### Check by https:\/\<BationHost IP\>:8443/ successfully
 
 # II. Jenkins jobs loading
 ## Copy all the jobs to Bastion Host /tmp/ directory
@@ -147,12 +146,9 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs includes in order to conduct
 ### 1. s3-create-k8s-configuration: Jobs to create S3 bucket to store k8s configuration
-### 2. k8-cluster-rsa-key-generate: Generate K8S RSA key
-### 3. k8s-create: Create k8s cluster in S3 (not deployed yet)
-### 4. k8s-cluster-deploy: Deploy K8S cluster to AWS 
-### 5. k8s-auto-scale-config: Auto-scale configuration for k8s cluster
-### 6. k8s-cluster-validate: Validate cluster
-### 7. k8s-deploy-tracking-system: Deploy a simulate tracking system to k8s
+### 2. k8s-create: Create k8s cluster in S3 (not deployed yet)
+### 3. k8s-cluster-deploy: Deploy K8S cluster to AWS 
+### 4. k8s-cluster-validate: Validate cluster
 
 ### 1. Create S3 bucket to store your k8s configuration
 Run the 1st job
