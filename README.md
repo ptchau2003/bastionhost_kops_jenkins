@@ -246,6 +246,11 @@ ip-172-20-79-77.ec2.internal	node	True
 Your cluster mycluster.k8s.local is ready
 Finished: SUCCESS
 ### 5. Deploy the test application into K8S
+Run k8s-test-deploy the traffic application include:
+- MongoDB
+- Service
+- Application
+- AWS storage EBS
 ```
 Started by user Chau Phan
 Running as SYSTEM
