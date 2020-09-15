@@ -249,3 +249,21 @@ Deleted kubectl config for mycluster.k8s.local
 Deleted cluster: "mycluster.k8s.local"
 Finished: SUCCESS
 ```
+# Terraform destroy the bastion node
+terraform destroy
+```
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_iam_role_policy.kops_policy: Destroying... [id=kops:kops]
+aws_instance.bastion-host: Destroying... [id=i-XXXXXXXXXXXXXXXX]
+aws_iam_role_policy.kops_policy: Destruction complete after 0s
+...
+aws_default_vpc.default: Destruction complete after 0s
+aws_iam_role.kops: Destruction complete after 0s
+
+Destroy complete! Resources: 7 destroyed.
+```
