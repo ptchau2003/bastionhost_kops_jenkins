@@ -1,13 +1,17 @@
-# I. Establish Bastion Host with Ansible/Jenkins/kops and deploy K8S cluster from this node to AWS EC2
-## The Bastion Host is an AWS EC2 node Ubuntu 18.6 includes:
+# How to create Bastion Host with Ansible/Jenkins/kops
+# How to use Bastion Host to deploy K8S cluster (to AWS Cloud)
+
+## The Bastion Host is an AWS EC2 node Ubuntu 18.6 which is deployed by Terraform includes:
 ### 1. Ansible
 ### 2. Jenkins with HTTPS configuration, HTTPS port 8443
 ### 3. AWS CLI
 ### 4. kops
 ### 5. Jenkins jobs to deploy the k8s cluster to system
 ### 6. Jenkins jobs to deploy simulate tracking application with CD/CI
+
 #### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
 #### The Bastion Host has roles Full to S3, EC2, IAM, Loadbalancer and Autoscaling to peform kops command
+
 ## Input AWS credentials key to your local machines
 aws configure
 
