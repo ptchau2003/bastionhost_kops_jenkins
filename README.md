@@ -1,5 +1,6 @@
 # I.      How to create Bastion Host with Ansible/Jenkins/kops by Terraform
-# II.     How to use Bastion Host to deploy K8S cluster (to AWS Cloud)
+# II.     How to use Jenkins on this Bastion Host to deploy K8S cluster (to AWS Cloud)
+# III.    How to use Jenkins to deploy test application to cluster
 
 ## The Bastion Host is an AWS EC2 node Ubuntu 18.04, t2.micro which is deployed by Terraform includes:
 ### 1.    Ansible
