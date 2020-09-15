@@ -111,6 +111,14 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --ht
 **Make sure that the store password is match with the store password you defined**
 #### Restart jenkins
 sudo service jenkins restart
+#### Access to Jenkins and input the Admin password from
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+![Admin](./Pic/1.png)
+
+## Install the needed jenkins following the instruction
+![Admin](./Pic/2.png)
 
 # II. Jenkins jobs loading
 ## Copy all the jobs to Bastion Host /tmp/ directory
@@ -139,15 +147,7 @@ ssh ubuntu@\`cat public_ip.txt\`
 sudo cp -pr /tmp/jobs/* /var/lib/jenkins/jobs/
 ## Restart jenkins
 sudo service jenkins restart
-## Access to Jenkins and input the Admin password from
-```
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-```
-![Admin](./Pic/1.png)
-
-## Install the needed jenkins following the instruction
-![Admin](./Pic/2.png)
-## After done, access to https://IPoftheBastionHost and you should see all available k8s job available
+## After done, access to https://IPoftheBastionHost:8443 and you should see all available k8s job available
 ![Admin](./Pic/3.PNG)
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
 ## Jobs conducting a k8s cluster includes: 
