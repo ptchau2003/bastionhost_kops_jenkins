@@ -126,7 +126,7 @@ config.xml                                                                      
 config.xml                                                                                                                                                                      100%  468     6.8KB/s   00:00
 ```
 ## Log into the Bastion Host 
-ssh ubuntu@`cat public_ip.txt`
+ssh ubuntu@\`cat public_ip.txt\`
 ## Change owner of the directory
 cd /tmp
 chown -R jenkins:jenkins jobs
