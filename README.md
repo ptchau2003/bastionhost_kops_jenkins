@@ -152,7 +152,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ### 4. k8s-cluster-validate: Validate cluster
 
 ## Setting Global Variables for Jenkis
-- From Jenkins GUI, go to Manage Jenkins --> Configuration System --> Global properties --> Environment variables
+From Jenkins GUI, go to Manage Jenkins --> Configuration System --> Global properties --> Environment variables
 Set:
 CLUSTER_NAME = myk8s.cluster.local
 BUCKET_NAME = myk8sconfig
