@@ -1,4 +1,4 @@
-# How to create Bastion Host with Ansible/Jenkins/kops
+# How to create Bastion Host with Ansible/Jenkins/kops by Terraform and user_data
 # How to use Bastion Host to deploy K8S cluster (to AWS Cloud)
 
 ## The Bastion Host is an AWS EC2 node Ubuntu 18.04 which is deployed by Terraform includes:
