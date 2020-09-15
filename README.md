@@ -99,11 +99,11 @@ Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 #### Create key and certificate. Provide information wherever asked.
 sudo openssl req -newkey rsa:2048 -nodes -keyout jenkins.key -x509 -days 700 -out jenkins.crt
 #### Below command would ask you for password. Remember the same as that will be used during the configuration.
-#### Because Jenkins requires pkcs12 so we need to convert pkcs12 before import to keystore.
+#### Because Jenkins requires pkcs12 so we need to convert to pkcs12 before import to java keystore.
 sudo openssl pkcs12 -inkey jenkins.key -in jenkins.crt -export -out jenkins.pkcs12
 #### Import the key to java jenkins keystore
 sudo keytool -importkeystore -srckeystore jenkins.pkcs12 -srcstoretype pkcs12 -destkeystore /var/lib/jenkins/jenkins.jks -deststoretype PKCS12
-#### Modify the jenkins configuration to support jenkins
+#### Modify the jenkins configuration to support HTTPS and disable HTTP
 
 sudo vi /etc/default/jenkins
 ```
