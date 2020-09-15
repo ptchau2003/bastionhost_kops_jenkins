@@ -9,7 +9,7 @@
 ### 4.    kops
 ### 5.    Jenkins jobs to deploy the k8s cluster to system
 
-#### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
+#### You need terraform to install bastion host, please refer to https://www.terraform.io/downloads.html to download and install to your system
 #### The Bastion Host has roles Full to S3, EC2, IAM, Loadbalancer and Autoscaling to peform kops command
 
 ## Input AWS credentials key to your local machines/laptop
@@ -95,18 +95,19 @@ Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 
 ```
 ## Setup HTTPS for Jenkins
-### Generate key for Jenkins
+### Generate X509 certificate for Jenkins
 #### Create key and certificate. Provide information wherever asked.
 sudo openssl req -newkey rsa:2048 -nodes -keyout jenkins.key -x509 -days 700 -out jenkins.crt
 #### Below command would ask you for password. Remember the same as that will be used during the configuration.
+#### Because Jenkins requires pkcs12 so we need to convert pkcs12 before import to keystore.
 sudo openssl pkcs12 -inkey jenkins.key -in jenkins.crt -export -out jenkins.pkcs12
-#### Import the key to java jenkins
+#### Import the key to java jenkins keystore
 sudo keytool -importkeystore -srckeystore jenkins.pkcs12 -srcstoretype pkcs12 -destkeystore /var/lib/jenkins/jenkins.jks -deststoretype PKCS12
 #### Modify the jenkins configuration to support jenkins
 
 sudo vi /etc/default/jenkins
 ```
-JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --httpsKeyStore="/var/lib/jenkins/jenkins.jks" --httpsKeyStorePassword="XXXXXX"
+JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --httpsKeyStore="/var/lib/jenkins/jenkins.jks" --httpsKeyStorePassword="XXXXXX""
 ```
 **Make sure that the store password is match with the store password you defined**
 #### Restart jenkins
@@ -157,11 +158,11 @@ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa):
 ```
-# III. Use K8S jobs to deploy the Kubenetes system to AWS
-## Jobs conducting a k8s cluster includes: 
-### 1. s3-create-k8s-configuration: Jobs to create S3 bucket to store k8s configuration
-### 2. k8s-create: Create k8s cluster configuration and put into S3 
-### 3. k8s-cluster-deploy: Deploy K8S cluster to AWS 
+# III. Use defined Jenkins jobs to deploy a Kubenetes system to AWS
+## Jobs includes: 
+### 1. s3-create-k8s-configuration: Creating S3 bucket to store k8s configuration
+### 2. k8s-create: Creating k8s cluster configuration and put into S3 
+### 3. k8s-cluster-deploy: Deploying k8s cluster to AWS 
 ### 4. k8s-cluster-validate: Validate cluster
 
 ## Setting Global Variables for Jenkins before deploying
@@ -188,7 +189,7 @@ Building in workspace /var/lib/jenkins/workspace/s3-create-k8s-configuration
 Finished: SUCCESS
 ```
 ### 2. K8s create
-Run task 2
+Run 2nd job
 ```
 Started by user Chau Phan
 Running as SYSTEM
@@ -211,7 +212,7 @@ Finally configure your cluster with: kops update cluster --name mycluster.k8s.lo
 Finished: SUCCESS
 ```
 ### 3. K8S deploy 
-Run task 3, k8s deploy
+Run 3rd job, k8s deploy
 ```
 Started by user Chau Phan
 Running as SYSTEM
@@ -251,10 +252,10 @@ ip-172-20-123-174.ec2.internal	node	True
 ip-172-20-47-247.ec2.internal	master	True
 ip-172-20-63-205.ec2.internal	node	True
 ip-172-20-79-77.ec2.internal	node	True
-```
 Your cluster mycluster.k8s.local is ready
 Finished: SUCCESS
-### 5. Deploy the test traccking tracking application into K8S
+```
+### 5. Deploy the vehicles tracking application (demo) to K8S
 Run k8s-test-deploy the traffic application include:
 - MongoDB
 - Service
