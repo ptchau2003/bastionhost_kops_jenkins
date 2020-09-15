@@ -241,6 +241,46 @@ ip-172-20-79-77.ec2.internal	node	True
 ```
 Your cluster mycluster.k8s.local is ready
 Finished: SUCCESS
+### Deploy the test application into K8S
+```
+Started by user Chau Phan
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/k8s-test-deploy
+[k8s-test-deploy] $ /bin/sh -xe /tmp/jenkins9199438205528836665.sh
++ kubectl apply -f /var/lib/jenkins/jobs/Deploy/storage-aws.yaml
+persistentvolumeclaim/mongo-pvc created
+storageclass.storage.k8s.io/cloud-ssd created
++ kubectl apply -f /var/lib/jenkins/jobs/Deploy/mongo-stack.yaml
+deployment.apps/mongodb created
+service/fleetman-mongodb created
++ kubectl apply -f /var/lib/jenkins/jobs/Deploy/services.yaml
+service/fleetman-webapp created
+service/fleetman-queue created
+service/fleetman-position-tracker created
+service/fleetman-api-gateway created
++ kubectl apply -f /var/lib/jenkins/jobs/Deploy/workloads.yaml
+deployment.apps/queue created
+deployment.apps/position-simulator created
+deployment.apps/position-tracker created
+deployment.apps/api-gateway created
+deployment.apps/webapp created
+Finished: SUCCESS
+```
+### Check SVC under jenkins user
+kubectl get svc
+```
+
+NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)              AGE
+fleetman-api-gateway        ClusterIP      100.70.164.112   <none>                                                                    8080/TCP             2m18s
+fleetman-mongodb            ClusterIP      100.67.201.85    <none>                                                                    27017/TCP            2m18s
+fleetman-position-tracker   ClusterIP      100.66.61.59     <none>                                                                    8080/TCP             2m18s
+fleetman-queue              ClusterIP      100.69.128.221   <none>                                                                    8161/TCP,61616/TCP   2m18s
+fleetman-webapp             LoadBalancer   100.65.230.145   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.amazonaws.com   80:31059/TCP         2m18s
+kubernetes                  ClusterIP      100.64.0.1       <none>                                                                    443/TCP              62m
+
+```
+Copy and paste the LoadBalancer External-IP to see the traffic tracking application running well
+
 ### K8S delete
 ```
 Started by user Chau Phan
