@@ -237,3 +237,16 @@ ip-172-20-79-77.ec2.internal	node	True
 ```
 Your cluster mycluster.k8s.local is ready
 Finished: SUCCESS
+### K8S delete
+```
+Started by user Chau Phan
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/k8s-delete
+[k8s-delete] $ /bin/sh -xe /tmp/jenkins2853240499787656079.sh
++ kops delete cluster mycluster.k8s.local --state=s3://myk8sconfig --yes
+...
+Deleted kubectl config for mycluster.k8s.local
+
+Deleted cluster: "mycluster.k8s.local"
+Finished: SUCCESS
+```
