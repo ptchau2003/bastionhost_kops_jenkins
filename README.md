@@ -12,7 +12,7 @@
 #### You need terrform to install bastion host, refer to https://www.terraform.io/downloads.html to download and install to your system
 #### The Bastion Host has roles Full to S3, EC2, IAM, Loadbalancer and Autoscaling to peform kops command
 
-## Input AWS credentials key to your local machines
+## Input AWS credentials key to your local machines/laptop
 aws configure
 
 ```
@@ -21,7 +21,7 @@ AWS Secret Access Key [****************EQSD]: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Default region name [us-east-1]:
 Default output format [json]:
 ```
-## Generate SSH key for Bastion host
+## Generate SSH key for Bastion host. This is used to connect from your laptop to BastionHost EC2
 ssh-keygen
 ```
 Generating public/private rsa key pair.
