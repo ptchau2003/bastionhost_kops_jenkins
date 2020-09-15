@@ -151,6 +151,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ### 3. k8s-cluster-deploy: Deploy K8S cluster to AWS 
 ### 4. k8s-cluster-validate: Validate cluster
 
+## Setting Global Variables for Jenkis
+- From Jenkins GUI, go to Manage Jenkins --> Configuration System --> Global properties --> Environment variables
+Set:
+CLUSTER_NAME = myk8s.cluster.local
+BUCKET_NAME = myk8sconfig
+JENKINS_HOME = /var/lib/jenkins
+--> Save
+
 ### 1. Create S3 bucket to store your k8s configuration
 Run the 1st job
 ```
