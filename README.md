@@ -142,6 +142,8 @@ sudo service jenkins restart
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
+![Admin](./Pic/1.png)
+
 ## Install the needed jenkins following the instruction
 ## After done, you can see all available k8s job available
 # III. Use K8S jobs to deploy the Kubenetes system to AWS
