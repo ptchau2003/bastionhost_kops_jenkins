@@ -3,7 +3,24 @@
   <actions/>
   <description>generate RSA for cluster</description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>NAME</name>
+          <description></description>
+          <defaultValue>myk8scluster.k8s.local</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BUCKET</name>
+          <description></description>
+          <defaultValue>s3://k8sconfiguration</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -16,21 +33,9 @@
       <command>rm -rf ~/.ssh/id_rsa
 ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N &quot;&quot;
 kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub --state=${BUCKET}</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
-  <buildWrappers>
-    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.23">
-      <bindings>
-        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-          <credentialsId>NAME</credentialsId>
-          <variable>NAME</variable>
-        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-          <credentialsId>BUCKET</credentialsId>
-          <variable>BUCKET</variable>
-        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-      </bindings>
-    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
-  </buildWrappers>
+  <buildWrappers/>
 </project>

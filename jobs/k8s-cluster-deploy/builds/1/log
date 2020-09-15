@@ -1,0 +1,5 @@
+Started by user [8mha:////4DWDSXNhRoK3t4MU8fmOCWvHlOBXop99EOow03ATihAaAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZu/dLi1CL9xJTczDwAawhpaMAAAAA=[0mChau Phan
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/k8s-cluster-deploy
+ERROR: Could not find credentials entry with ID 'BUCKET'
+Finished: FAILURE

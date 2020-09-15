@@ -1,0 +1,11 @@
+Started by user [8mha:////4DWDSXNhRoK3t4MU8fmOCWvHlOBXop99EOow03ATihAaAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZu/dLi1CL9xJTczDwAawhpaMAAAAA=[0mChau Phan
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/k8-cluster-rsa-key-generate
+[k8-cluster-rsa-key-generate] $ /bin/sh -xe /tmp/jenkins6009037549881807051.sh
++ rm -rf /var/lib/jenkins/.ssh/id_rsa
++ ssh-keygen -b 2048 -t rsa -f /var/lib/jenkins/.ssh/id_rsa -q -N 
++ kops create secret --name myk8scluster.k8s.local sshpublickey admin -i /var/lib/jenkins/.ssh/id_rsa.pub --state=s3://k8sconfiguration
+
+error reading cluster configuration: error reading cluster configuration "myk8scluster.k8s.local": error reading s3://k8sconfiguration/myk8scluster.k8s.local/config: Could not retrieve location for AWS bucket k8sconfiguration
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

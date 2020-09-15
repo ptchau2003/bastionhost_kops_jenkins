@@ -1,0 +1,58 @@
+Started by user [8mha:////4DWDSXNhRoK3t4MU8fmOCWvHlOBXop99EOow03ATihAaAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZu/dLi1CL9xJTczDwAawhpaMAAAAA=[0mChau Phan
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/k8s-create
+[k8s-create] $ /bin/sh -xe /tmp/jenkins8880928029114904779.sh
++ kops create cluster --node-count=3 --zones=us-east-1a,us-east-1b,us-east-1c mycluster.k8s.local --state=s3://myk8sconfig
+I0915 07:56:05.237658   12686 create_cluster.go:555] Inferred --cloud=aws from zone "us-east-1a"
+I0915 07:56:05.315402   12686 subnets.go:184] Assigned CIDR 172.20.32.0/19 to subnet us-east-1a
+I0915 07:56:05.315501   12686 subnets.go:184] Assigned CIDR 172.20.64.0/19 to subnet us-east-1b
+I0915 07:56:05.315527   12686 subnets.go:184] Assigned CIDR 172.20.96.0/19 to subnet us-east-1c
+I0915 07:56:06.083990   12686 create_cluster.go:1537] Using SSH public key: /var/lib/jenkins/.ssh/id_rsa.pub
+Previewing changes that will be made:
+
+I0915 07:56:06.437920   12686 apply_cluster.go:545] Gossip DNS: skipping DNS validation
+I0915 07:56:06.504175   12686 executor.go:103] Tasks: 0 done / 96 total; 42 can run
+I0915 07:56:06.779563   12686 executor.go:103] Tasks: 42 done / 96 total; 28 can run
+I0915 07:56:07.096364   12686 executor.go:103] Tasks: 70 done / 96 total; 22 can run
+W0915 07:56:07.277379   12686 executor.go:128] error running task "LaunchConfiguration/master-us-east-1a.masters.mycluster.k8s.local" (9m59s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: 8c1403c9-0833-40ec-9645-e5eaa2dc86a2
+W0915 07:56:07.277539   12686 executor.go:128] error running task "LaunchConfiguration/nodes.mycluster.k8s.local" (9m59s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: 1b7d41bb-a5af-4d1c-a5d8-63f3ad53e028
+W0915 07:56:07.277573   12686 executor.go:128] error running task "LoadBalancer/api.mycluster.k8s.local" (9m59s remaining to succeed): error describing LoadBalancers: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: elasticloadbalancing:DescribeLoadBalancers
+	status code: 403, request id: 7e92f8d2-3a58-4caf-a396-aa2392ba8241
+I0915 07:56:07.277609   12686 executor.go:103] Tasks: 89 done / 96 total; 3 can run
+W0915 07:56:07.283420   12686 executor.go:128] error running task "LaunchConfiguration/master-us-east-1a.masters.mycluster.k8s.local" (9m59s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: ccc4676d-a400-4b94-8723-4bdb087fd4a5
+W0915 07:56:07.283474   12686 executor.go:128] error running task "LaunchConfiguration/nodes.mycluster.k8s.local" (9m59s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: d66c7bd6-a0df-48ae-aa4c-4d5fa2468067
+W0915 07:56:07.283529   12686 executor.go:128] error running task "LoadBalancer/api.mycluster.k8s.local" (9m59s remaining to succeed): error describing LoadBalancers: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: elasticloadbalancing:DescribeLoadBalancers
+	status code: 403, request id: f0d7fb92-46ed-4478-9405-dcc82263fff8
+I0915 07:56:07.283556   12686 executor.go:143] No progress made, sleeping before retrying 3 failed task(s)
+I0915 07:56:17.283818   12686 executor.go:103] Tasks: 89 done / 96 total; 3 can run
+W0915 07:56:17.317402   12686 executor.go:128] error running task "LaunchConfiguration/master-us-east-1a.masters.mycluster.k8s.local" (9m49s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: 45768757-484a-4f80-81f1-a1d5329693e7
+W0915 07:56:17.317497   12686 executor.go:128] error running task "LaunchConfiguration/nodes.mycluster.k8s.local" (9m49s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: 2654bfb6-bea4-4268-b31a-3515a67da9df
+W0915 07:56:17.317530   12686 executor.go:128] error running task "LoadBalancer/api.mycluster.k8s.local" (9m49s remaining to succeed): error describing LoadBalancers: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: elasticloadbalancing:DescribeLoadBalancers
+	status code: 403, request id: e60d14f5-dbce-477c-997a-8288bb585c10
+I0915 07:56:17.317553   12686 executor.go:143] No progress made, sleeping before retrying 3 failed task(s)
+I0915 07:56:27.317819   12686 executor.go:103] Tasks: 89 done / 96 total; 3 can run
+W0915 07:56:27.348910   12686 executor.go:128] error running task "LaunchConfiguration/master-us-east-1a.masters.mycluster.k8s.local" (9m39s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: b55c6c79-efc7-4339-81ac-ef8069c895e1
+W0915 07:56:27.349017   12686 executor.go:128] error running task "LaunchConfiguration/nodes.mycluster.k8s.local" (9m39s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: c0352a99-de83-44a4-8e7c-dc49b009076f
+W0915 07:56:27.349049   12686 executor.go:128] error running task "LoadBalancer/api.mycluster.k8s.local" (9m39s remaining to succeed): error describing LoadBalancers: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: elasticloadbalancing:DescribeLoadBalancers
+	status code: 403, request id: c528a561-b422-4c99-be43-081a5b25c66a
+I0915 07:56:27.349071   12686 executor.go:143] No progress made, sleeping before retrying 3 failed task(s)
+I0915 07:56:37.349348   12686 executor.go:103] Tasks: 89 done / 96 total; 3 can run
+W0915 07:56:37.377766   12686 executor.go:128] error running task "LaunchConfiguration/master-us-east-1a.masters.mycluster.k8s.local" (9m29s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: 82ad59dd-f065-45b9-8f64-3acd30a86ff7
+W0915 07:56:37.377874   12686 executor.go:128] error running task "LaunchConfiguration/nodes.mycluster.k8s.local" (9m29s remaining to succeed): error listing AutoscalingLaunchConfigurations: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: autoscaling:DescribeLaunchConfigurations
+	status code: 403, request id: d9814f5f-37b1-4099-9144-719585f7e5d7
+W0915 07:56:37.377907   12686 executor.go:128] error running task "LoadBalancer/api.mycluster.k8s.local" (9m29s remaining to succeed): error describing LoadBalancers: AccessDenied: User: arn:aws:sts::411665513165:assumed-role/kops/i-084abc7b42b291ef4 is not authorized to perform: elasticloadbalancing:DescribeLoadBalancers
+	status code: 403, request id: ff66a1ce-d245-4298-8618-8e3e13e09474
+I0915 07:56:37.377950   12686 executor.go:143] No progress made, sleeping before retrying 3 failed task(s)
+Terminated
+Build was aborted
+Aborted by [8mha:////4DWDSXNhRoK3t4MU8fmOCWvHlOBXop99EOow03ATihAaAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZu/dLi1CL9xJTczDwAawhpaMAAAAA=[0mChau Phan
+Finished: ABORTED

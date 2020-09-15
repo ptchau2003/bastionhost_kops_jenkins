@@ -4,7 +4,18 @@
   <description>s3 bucket creation - s3 for storing the k8s configuration&#xd;
 Enable versioning and encrypt the configuration</description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>S3NAME</name>
+          <description>The S3 bucket store your k8s configuration will be created.</description>
+          <defaultValue>myk8sconfig</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -17,17 +28,9 @@ Enable versioning and encrypt the configuration</description>
       <command>aws s3api create-bucket --bucket $S3NAME --region us-east-1
 aws s3api put-bucket-versioning --bucket $S3NAME --versioning-configuration Status=Enabled
 aws s3api put-bucket-encryption --bucket $S3NAME --server-side-encryption-configuration &apos;{&quot;Rules&quot;:[{&quot;ApplyServerSideEncryptionByDefault&quot;:{&quot;SSEAlgorithm&quot;:&quot;AES256&quot;}}]}&apos;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
-  <buildWrappers>
-    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.23">
-      <bindings>
-        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-          <credentialsId>S3NAME</credentialsId>
-          <variable>S3NAME</variable>
-        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
-      </bindings>
-    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
-  </buildWrappers>
+  <buildWrappers/>
 </project>

@@ -92,7 +92,9 @@ resource "aws_iam_role_policy" "kops_policy" {
                 "iam:*",
                 "s3:*",
                 "route53:*",
-                "ec2:*"
+                "ec2:*",
+                "elasticloadbalancing:*",
+                "autoscaling:*"
             ],
             "Resource": "*"
         }
