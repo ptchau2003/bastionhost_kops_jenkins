@@ -13,7 +13,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kops validate cluster --name=${CLUSTER_NAME} --state=s3://${BUCKET}</command>
+      <command>kops validate cluster --name=${CLUSTER_NAME} --state=s3://${BUCKET_NAME}</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
