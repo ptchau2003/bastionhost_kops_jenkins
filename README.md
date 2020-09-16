@@ -168,7 +168,7 @@ Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa):
 ## Setting Global Variables for Jenkins before deploying
 ##### From Jenkins GUI, go to Manage Jenkins --> Configuration System --> Global properties --> Environment variables
 ##### Set:
-##### CLUSTER_NAME = myk8s.cluster.local
+##### CLUSTER_NAME = mycluster.k8s.local
 ##### BUCKET_NAME = myk8sconfig
 ##### JENKINS_HOME = /var/lib/jenkins
 ##### --> Save
