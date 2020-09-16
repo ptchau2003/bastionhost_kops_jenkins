@@ -112,7 +112,7 @@ JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=-1 --httpsPort=8443 --ht
 **Make sure that the store password is match with the store password you defined**
 #### Restart jenkins
 sudo service jenkins restart
-#### Access to Jenkins and input the Admin password from
+#### Access to Jenkins by HTTPS:/<HOST_PUBLIC_IP:8443 and get the Admin password from
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
